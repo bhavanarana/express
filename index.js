@@ -7,20 +7,20 @@ const app = express();
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded());
+app.use(express.static("assets"));
 
 //middleware1
 //if there is a next middleware call next otherwise pass to controller
-app.use(function (req, res, next) {
-  // console.log("middleware 1 called");
-  req.name = "Bhavana";
-  next();
-});
-app.use(function (req, res, next) {
-  // console.log("middleware 2");
-  console.log("mw1 name", req.name);
-
-  next();
-});
+//app.use(function (req, res, next) {
+// console.log("middleware 1 called");
+//req.name = "Bhavana";
+//next();
+//});
+//app.use(function (req, res, next) {
+// console.log("middleware 2");
+//console.log("mw1 name", req.name);
+//next();
+//});
 var contactList = [
   {
     name: "Arpan",
