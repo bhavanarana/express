@@ -6,6 +6,7 @@ const app = express();
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
+app.use(express.urlencoded());
 
 var contactList = [
   {
@@ -37,7 +38,12 @@ app.get("/practice", (req, res) => {
 
 app.post("/create-contact", (req, res) => {
   //take me to tht url or route
-  return res.redirect("/practice");
+  // return res.redirect("/practice");
+  contactList.push({
+    name: req.body.name,
+    phone: req.body.phone,
+  });
+  return res.redirect("/");
 });
 
 app.listen(port, function (err) {
