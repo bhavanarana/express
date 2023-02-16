@@ -23,16 +23,16 @@ app.use(express.static("assets"));
 //});
 var contactList = [
   {
-    name: "Arpan",
-    phone: "1111111111",
+    name: "Bhavana",
+    phone: "94698533442",
   },
   {
-    name: "Tony Stark",
-    phone: "1234567890",
+    name: "Anamika",
+    phone: "953875752342",
   },
   {
-    name: "Coding Ninjas",
-    phone: "12131321321",
+    name: "Mansi",
+    phone: "948372924",
   },
 ];
 //controllers
@@ -69,7 +69,6 @@ app.listen(port, function (err) {
 app.get("/delete-contact/", function (req, res) {
   console.log(req.query);
   let phone = req.query.phone;
-
   let contactindex = contactList.findIndex((contact) => contact.phone == phone);
 
   if (contactindex != -1) {
